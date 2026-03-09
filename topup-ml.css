@@ -1,0 +1,1281 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-dark: #0b0f1a;
+    --bg-card: #161b2a;
+    --neon-blue: #00f2fe;
+    --neon-green: #00ff88;
+    --gold: #ffcc00;
+}
+
+/* Container pembatas agar konten yang bergeser tidak meluber keluar layar */
+.viewport-neon {
+    overflow: hidden; 
+    width: 100%;
+    position: relative;
+}
+
+/* Wrapper utama yang akan digeser oleh JavaScript */
+.inner-slide-wrapper {
+    display: block;
+    width: 100%;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Efek pergerakan halus */
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Animasi saat user menekan Jalur B (Geser ke Kiri) */
+.slide-out-left {
+    transform: translateX(-30px);
+    opacity: 0;
+    filter: blur(4px); /* Efek kecepatan cahaya (motion blur) */
+}
+
+/* Animasi saat user menekan Jalur A (Geser ke Kanan) */
+.slide-out-right {
+    transform: translateX(30px);
+    opacity: 0;
+    -webkit-transform: translateX(30px);
+    -moz-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    -o-transform: translateX(30px);
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    margin: 0;
+     overflow-x: hidden;
+}
+
+.topup-container-modern {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* === */
+/* === Navbar Style === */
+/* === */
+
+.navbar-neon {
+    background: #0f0a19;
+    padding: 15px 0;
+    border-bottom: 2px solid var(--neon-blue);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-logo {
+    color: var(--neon-blue);
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+    text-shadow: 0 0 10px var(--neon-blue);
+}
+
+.nav-logo span {
+    color: #fff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--neon-green);
+    text-shadow: 0 0 8px var(--neon-green);
+}
+
+.nav-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--neon-blue);
+}
+
+/* === */
+/* === Navbar Style === */
+/* === */
+
+/* === */
+/* === Gaya Khusus Langkah 1: pengaturan card === */
+/* === */
+
+/* Kotak Utama dengan Efek Glassmorphism */
+.step-box-neon {
+    background: linear-gradient(145deg, #161b2a, #0f131e);
+    border: 1px solid rgba(0, 242, 254, 0.2); /* Border Biru Neon Tipis */
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
+    inset 0 0 15px rgba(0, 242, 254, 0.05);
+    position: relative;
+    overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+/* Garis Cahaya di Samping Kotak */
+.step-box-neon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px; /* Sedikit lebih tebal agar glow terasa */
+    height: 100%;
+    background: linear-gradient(to bottom, var(--neon-blue), var(--neon-green));
+    box-shadow: 2px 0 10px rgba(0, 242, 254, 0.4); /* Efek cahaya merambat ke dalam box */
+}
+
+.step-header h3 {
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* === */
+/* === Gaya Khusus Langkah 1: pengaturan card === */
+/* === */
+
+/* === */
+/* === Grid Input (User ID & Zone) === */
+/* === */
+
+.input-group-grid {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Gaya Input Field Cyber */
+.cyber-input-field {
+    flex: 2; /* User ID lebih lebar */
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #2a3b55;
+    border-radius: 12px;
+    padding: 15px 20px;
+    color: var(--neon-green); /* Teks ketikan berwarna hijau neon */
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.cyber-input-field.zone {
+    flex: 1; /* Zone ID lebih kecil */
+}
+
+/* Efek Saat Input Diklik (Focus) */
+.cyber-input-field:focus {
+    border-color: var(--neon-blue);
+    background: rgba(0, 242, 254, 0.05);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Warna Placeholder */
+.cyber-input-field::placeholder {
+    color: rgba(139, 155, 180, 0.5);
+    font-weight: 400;
+}
+
+/* Teks Petunjuk di Bawah */
+.input-hint {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #8b9bb4;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-hint::before {
+    content: 'ⓘ';
+    color: var(--neon-blue);
+    font-weight: bold;
+}
+
+/* Menghilangkan panah atas/bawah pada input type number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.zone-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.help-icon {
+    margin-left: 10px;
+    cursor: pointer;
+    background: var(--neon-blue, #00f2fe);
+    color: #000;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+    transition: 0.3s;
+}
+
+.help-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.8);
+}
+
+/* Modal Styling */
+.help-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.help-modal-content {
+    background: #1a1a1a;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid var(--neon-blue, #00f2fe);
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+.guide-img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.close-help {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* === */
+/* === Grid Input (User ID & Zone) === */
+/* === */
+
+/* === */
+/* === Langkah 2: Pilihan Diamonds === */
+/* === */
+
+/* Container Grid */
+.selection-grid, 
+.payment-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px;
+    margin-top: 15px;
+    /* Tambahkan animasi masuk untuk setiap card */
+    animation: fadeInSlide 0.5s ease forwards;
+}
+
+/* Card Wrapper agar tinggi sejajar */
+.item-card {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Memastikan wrapper mengikuti tinggi grid */
+}
+
+.item-card input[type="radio"] {
+    display: none; /* Sembunyikan radio button bawaan */
+}
+
+/* Isi Konten Card */
+.item-content {
+    background: #1a1425; /* Warna ungu gelap dashboard */
+    border: 2px solid var(--neon-blue);
+    border-radius: 15px;
+    padding: 25px 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Menjaga konten di tengah secara vertikal */
+    gap: 5px;
+    width: 100%;
+    height: 100%; /* MEMBUAT SEMUA CARD SAMA TINGGI */
+    box-sizing: border-box;
+}
+
+/* Ikon Diamond Emoji */
+.diamond-icon {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 0 5px var(--neon-blue));
+}
+
+/* Teks Judul Diamond */
+.item-title {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 0.95rem;
+    line-height: 1.2;
+}
+
+/* Teks Bonus (Hijau Neon) */
+.item-bonus {
+    color: var(--neon-green);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Harga Coret */
+.item-price-old {
+    color: #8b9bb4;
+    text-decoration: line-through;
+    font-size: 0.75rem;
+    margin-top: 5px;
+}
+
+/* Harga Utama (Kuning Emas agar kontras) */
+.item-price {
+    color: #ffcc00;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+/* Label Best Seller */
+.best-seller-tag {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-green));
+    color: #000;
+    font-size: 0.65rem;
+    font-weight: bold;
+    padding: 4px 15px;
+    border-radius: 20px;
+    z-index: 10;
+    white-space: nowrap;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
+}
+
+.best-seller-row {
+    display: flex;          /* ganti dari grid */
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+/* === EFEK INTERAKSI === */
+
+/* Saat Card Dipilih (Border Hijau Neon) */
+.item-card input:checked + .item-content {
+    border-color: var(--neon-green);
+    background: rgba(0, 255, 136, 0.08);
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.5);
+    transform: translateY(-5px);
+}
+
+/* Efek Hover */
+.item-content:hover {
+    border-color: var(--neon-green);
+    background: rgba(0, 255, 136, 0.05);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+}
+
+.category-title {
+    color: var(--neon-blue);
+    font-size: 1rem;
+    margin: 20px 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-left: 3px solid var(--neon-green);
+    padding-left: 10px;
+}
+
+@keyframes fadeInSlide {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* === */
+/* === Langkah 2: Pilihan Diamonds === */
+/* === */
+
+/* === */
+/* === Payment Grid === */
+/* === */
+
+.payment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+    margin-top: 15px;
+    max-width: 600px;       /* Batasi lebar agar tidak melar ke samping */
+    margin-left: auto;      /* Gabungkan dengan margin-right auto untuk tengah */
+    margin-right: auto;
+}
+
+.payment-card {
+    cursor: pointer;
+    position: relative;
+}
+
+.payment-card input[type="radio"] {
+    display: none;
+}
+
+.payment-content {
+    background: #1a1425;
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; /* Logo di atas, teks di bawah */
+    justify-content: center;
+    align-items: center;
+    gap: 12px;              /* Jarak antara logo dan teks */
+    padding: 20px;
+    min-height: 110px;      /* Beri ruang cukup agar tidak sesak */
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.payment-logo {
+    width: auto;
+    height: 30px;           /* Ukuran logo yang ideal */
+    max-width: 100%;        /* Agar tidak keluar kotak */
+    object-fit: contain;
+    /* Hapus filter: brightness(0) invert(1) jika Anda ingin warna asli logo muncul */
+    filter: none; 
+    transition: all 0.3s ease;
+}
+
+/* Efek saat dipilih: Logo bisa dibuat lebih terang atau berwarna asli */
+.payment-card input:checked + .payment-content .payment-logo {
+    filter: none;           /* Mengembalikan warna asli saat dipilih */
+    transform: scale(1.1);  /* Efek zoom sedikit pada logo */
+}
+
+.payment-name {
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* === Efek Hover & Terpilih === */
+
+.payment-content:hover {
+    border-color: var(--neon-blue);
+    background: rgba(0, 242, 254, 0.05);
+}
+
+/* Efek Klik Payment (Warna Biru Neon) */
+.payment-card input:checked + .payment-content {
+    border-color: var(--neon-green);
+    background: rgba(0, 255, 136, 0.1);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+    transform: translateY(-2px);
+}
+
+.payment-card input:checked + .payment-content .payment-name {
+    color: var(--neon-green);
+}
+
+.payment-summary-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    border: 1px dashed rgba(0, 242, 254, 0.3);
+    margin-top: 30px;
+}
+
+/* === */
+/* === Payment Grid === */
+/* === */
+
+/* === */
+/* === Button === */
+/* === */
+
+.payment-action-box {
+    display: flex;
+    justify-content: center; /* Menaruh tombol tepat di tengah */
+    margin-top: 30px;
+    width: 100%;
+}
+
+.btn-bayar-neon {
+    /* Hapus width: 100% jika ada */
+    min-width: 280px; /* Memberi lebar minimal yang pas */
+    padding: 15px 40px; 
+    background: transparent;
+    border: 2px solid var(--neon-green);
+    color: var(--neon-green);
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+}
+
+.btn-bayar-neon:hover {
+    background: var(--neon-green);
+    color: #000;
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.6);
+}
+
+/* === */
+/* === Button === */
+/* === */
+
+
+/* === */
+/* === Qty Style === */
+/* === */
+
+.qty-wrapper label {
+    display: block;
+    color: #8b9bb4;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+.qty-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--neon-blue);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.qty-btn {
+    background: rgba(0, 242, 254, 0.1);
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.qty-control input {
+    width: 50px;
+    text-align: center;
+    background: transparent;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* === */
+/* === Qty Style === */
+/* === */
+
+/* === */
+/* === Total Harga Style === */
+/* === */
+
+.total-price-box {
+    text-align: right;
+}
+
+.total-label {
+    display: block;
+    color: #8b9bb4;
+    font-size: 0.9rem;
+}
+
+.total-amount {
+    color: #ffcc00; /* Kuning emas agar kontras */
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+/* Ikon di Button */
+.btn-icon {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+/* === */
+/* === Total Harga Style === */
+/* === */
+
+/* === */
+/* === total item yang di pilih === */
+/* === */
+
+.item-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgba(0, 242, 254, 0.1);
+    padding-bottom: 5px;
+}
+
+.selected-item-name {
+    color: var(--neon-blue, #00f2fe);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.item-label {
+    color: #ccc;
+    font-size: 0.85em;
+}
+
+/* === */
+/* === total item yang di pilih === */
+/* === */
+
+/* === */
+/* === Styling icon mahkota agar bersinar gold/neon === */
+/* === */
+
+.diamond-icon {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5)); /* Efek glow emas untuk mahkota */
+}
+
+/* Memastikan grid tetap 4 kolom sesuai keinginanmu sebelumnya */
+.selection-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* */
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+/* === */
+/* === Styling icon mahkota agar bersinar gold/neon === */
+/* === */
+
+/* === */
+/* === styling icon " ! " === */
+/* === */
+
+.info-box-neon {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 242, 254, 0.05);
+    border: 1px dashed var(--neon-blue, #00f2fe);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.1);
+}
+
+.info-icon {
+    background: var(--neon-blue, #00f2fe);
+    color: #000;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 15px;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
+}
+
+.info-text p {
+    color: #ccc;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.info-text strong {
+    color: var(--neon-blue, #00f2fe);
+}
+
+/* === */
+/* === styling icon " ! " === */
+/* === */
+
+/* === */
+/* Container Background Modal (Layar Hitam Transparan) START */
+/* === */
+
+.receipt-modal {
+    display: none; /* Disembunyikan dulu */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    justify-content: center; /* Membuat modal tepat di tengah */
+    align-items: center;
+}
+
+/* Kartu Struk Utama */
+#receiptModal .modal-card {
+    background: #0f172a;
+    border: 1px solid var(--neon-blue);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 420px;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
+    animation: zoomIn 0.3s ease-out; /* Animasi muncul */
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Header Struk */
+.receipt-header {
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.receipt-header i {
+    font-size: 3rem;
+    color: var(--neon-blue);
+    margin-bottom: 10px;
+}
+
+.receipt-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Detail Baris (ID, Item, dll) */
+.receipt-item-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.receipt-item-row .label {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.receipt-item-row .value {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Total Bayar */
+.receipt-total {
+    margin: 20px 0;
+    background: rgba(0, 242, 255, 0.1);
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.receipt-total .total-label {
+    color: var(--neon-blue);
+    font-weight: bold;
+}
+
+.receipt-total .total-value {
+    color: var(--neon-blue);
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+/* Tombol Close */
+.close-receipt {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+.close-receipt:hover { opacity: 1; }
+
+/* Reset gaya dasar untuk memastikan tidak ada override dari browser */
+.btn-wa-neon {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 320px; /* Batasi lebar maksimal agar tidak melar */
+    margin: 20px auto 0; /* Simpan di tengah */
+    padding: 12px 20px;
+    background-color: #00ff88 !important; /* Hijau neon paksa */
+    color: #000 !important; /* Teks hitam agar kontras */
+    border: none !important;
+    border-radius: 8px !important;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none !important; /* Hilangkan garis bawah jika berupa link <a> */
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+}
+
+.btn-wa-neon:hover {
+    background-color: #00e67a !important;
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.6);
+}
+
+/* Pastikan icon di dalamnya juga rapi */
+.btn-wa-neon i {
+    font-size: 1.2rem;
+}
+
+/* === */
+/* Container Background Modal (Layar Hitam Transparan) END */
+/* === */
+
+
+.info-jalur-neon {
+    background: rgba(20, 20, 30, 0.8);
+    border: 1px solid #bc13fe; /* Warna ungu neon */
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(188, 19, 254, 0.2);
+}
+
+.jalur-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: #0ff; /* Cyan neon */
+}
+
+.jalur-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.jalur-item p {
+    font-size: 0.8rem;
+    color: #8b9bb4;
+    line-height: 1.4;
+    margin-top: 8px;
+}
+
+.badge-jalur {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.badge-jalur.a {
+    background: #bc13fe;
+    color: #fff;
+    box-shadow: 0 0 8px #bc13fe;
+}
+
+.badge-jalur.b {
+    background: #0ff;
+    color: #000;
+    box-shadow: 0 0 8px #0ff;
+}
+
+.jalur-footer {
+    font-size: 0.7rem;
+    color: #64748b;
+    margin-top: 12px;
+    text-align: center;
+    border-top: 1px dashed #334155;
+    padding-top: 8px;
+}
+
+/* Styling Tab Switcher */
+.tab-container-neon {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 6px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    color: #8b9bb4;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.tab-btn.active {
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+}
+
+.info-jalur-mini {
+    font-size: 0.8rem;
+    color: #00f2fe;
+    margin-bottom: 20px;
+    text-align: center;
+    background: rgba(0, 242, 254, 0.05);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* === */
+/* === Style Loading Screen START === */
+/* === */
+
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0a0e17; /* Sama dengan --bg-dark */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Pastikan paling atas */
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-circle {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(0, 242, 254, 0.1);
+    border-top: 4px solid var(--neon-blue);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 15px var(--neon-blue-dim);
+}
+
+.loader-text {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green);
+    letter-spacing: 2px;
+}
+
+.loader-text span {
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px var(--neon-blue);
+}
+
+.loader-content p {
+    color: #8b9bb4;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+/* Animasi Putar */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Class untuk menghilangkan loader */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* === */
+/* === Style Loading Screen END === */
+/* === */
+
+/* === */
+/* === Footer Style START === */
+/* === */
+
+.footer-neon {
+    background: #0f0a19;
+    border-top: 2px solid var(--neon-blue);
+    color: #fff;
+    padding: 50px 0 20px;
+    margin-top: 100px; /* Memberi jarak dari tombol konfirmasi */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-about h4, .footer-links h4, .footer-social h4 {
+    color: var(--neon-blue);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #8b9bb4;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--neon-green);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+    color: #8b9bb4;
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.social-link {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 255, 204, 0.1); /* Background transparan tipis */
+    color: #00ffcc; /* Warna cyan neon */
+    border: 1px solid #00ffcc;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-link:hover {
+    background: #00ffcc;
+    color: #1a1a1a;
+    box-shadow: 0 0 10px #00ffcc; /* Efek nyala */
+    transform: translateY(-3px);
+}
+
+/* === */
+/* === Footer Style END === */
+/* === */
+
+/* === */
+/* === Mobile Responsive START === */
+/* === */
+
+/* 1. LAYAR TABLET (768px) - Taruh Paling Atas */
+@media (max-width: 768px) {
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    .nav-links {
+        display: none; /* Sembunyi default */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(22, 27, 42, 0.98);
+        border-bottom: 2px solid var(--neon-blue);
+        padding: 20px 0;
+        text-align: center;
+        z-index: 1000;
+        padding-top: 60px; /* Beri ruang agar tidak menabrak header */
+        justify-content: flex-start;
+    }
+
+    .nav-links.active {
+        display: flex !important; /* Tambahkan !important agar pasti muncul */
+    }
+
+    .nav-toggle {
+        display: block; 
+        cursor: pointer;
+        font-size: 1.8rem;
+        color: var(--neon-blue);
+    }
+
+    .selection-grid, .payment-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 Kolom di Tablet */
+        gap: 10px;
+    }
+
+    .selection-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 kolom di tablet */
+    }
+}
+
+/* 2. LAYAR HP (480px) - Versi Perbaikan Maksimal */
+@media (max-width: 480px) {
+    /* 1. Container & Box agar tidak sempit */
+    .topup-container-modern {
+        margin: 10px auto;
+        padding: 10px;
+    }
+
+    .step-box-neon {
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    /* 2. INI KUNCINYA: Membuat User ID & Zone ID bertumpuk (Sejajar ke bawah) */
+    .input-group-grid {
+        flex-direction: column; 
+        gap: 15px; /* Jarak antara kolom atas dan bawah */
+    }
+
+    .cyber-input-field {
+        width: 100%; /* Paksa lebar penuh */
+        flex: none;  /* Matikan rasio flex agar tidak mengecil */
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    /* Agar Zone ID dan tombol '?' tetap rapi saat pindah ke bawah */
+    .zone-wrapper {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+    }
+
+    /* 3. Optimasi Grid Diamond (2 Kolom agar tetap hemat tempat) */
+    .selection-grid {
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 8px;
+    }
+
+    .item-content {
+        padding: 15px 10px;
+    }
+
+    .item-title { font-size: 0.85rem; }
+    .item-price { font-size: 0.95rem; }
+
+    /* 4. Payment: Buat 1 kolom saja agar logo metode pembayaran terlihat jelas */
+    .payment-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px;
+    }
+
+    .jalur-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.item-card:active .item-content, 
+.payment-card:active .payment-content,
+.btn-bayar-neon:active {
+    transform: scale(0.95);
+    transition: 0.1s;
+}
+
+/* === */
+/* === Mobile Responsive END === */
+/* === */

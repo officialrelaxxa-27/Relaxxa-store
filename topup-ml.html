@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Up MLBB - RELAXXA_OFFICIAL</title>
+    <link rel="icon" type="image/png" href="assets/img/Logo_2-removebg-preview.png">
+    <link rel="stylesheet" href="topup-ml.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    
+    <!-- === loding screen === -->
+    <div id="loader-wrapper">
+    <div class="loader-content">
+        <div class="loader-circle"></div>
+        <div class="loader-text">RELAXXA<span>OFFICIAL</span></div>
+        <p>Mohon Tunggu...</p>
+    </div>
+</div>
+<!-- === loding screen === -->
+    
+    <!-- === bagian header === -->
+    <nav class="navbar-neon">
+    <div class="nav-container">
+        <a href="#" class="nav-logo">💎 RELAXXA<span>official</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <!-- <li><a href="javascript:void(0)" onclick="openSearchModal()">Cek Pesanan</a></li> -->
+            <!-- <li><a href="#">Daftar Harga</a></li> -->
+        </ul>
+        <div class="nav-toggle">☰</div>
+    </div>
+</nav>
+    <!-- === bagian header === -->
+
+    <!-- === bagian data akun === -->
+    <div class="topup-container-modern">
+        <div class="step-box-neon">
+            <div class="step-header">
+                <span class="step-num">1</span>
+                <h3>Lengkapi Data Akun</h3>
+            </div>
+            <div class="input-group-grid">
+                <input type="number" id="user-id" placeholder="User ID" class="cyber-input-field"
+                oninput="javascript: if (this.value.length > 6) this.value = this.value.slice(0, 6);">
+                <div class="zone-wrapper">
+                    <input type="number" id="zone-id" placeholder="(Zone ID)" class="cyber-input-field zone"
+                    oninput="javascript: if (this.value.length > 4) this.value = this.value.slice(0, 4);">
+                    <span class="help-icon" onclick="openHelpModal()">?</span>
+                </div>
+            </div>
+            
+            <div id="helpModal" class="help-modal">
+                <div class="help-modal-content">
+                    <span class="close-help" onclick="closeHelpModal()">&times;</span>
+                    <img src="assets/img/Cuplikan layar 2026-03-03 220621.png" alt="Panduan Zone ID" class="guide-img">
+                    <p>User ID & Zone ID dapat ditemukan di menu profil game Anda.</p>
+                </div>
+            </div>
+            <p class="input-hint">Klik profil game Anda untuk melihat User ID & Zone ID.</p>
+        </div>
+        <!-- === bagian data akun === -->
+
+        <!-- === bagian pemilihan diamonds === -->
+        <div class="step-box-neon">
+            <div class="step-header">
+                <span class="step-num">2</span>
+                <h3>Pilih Nominal Diamonds</h3>
+            </div>
+
+            <div class="info-jalur-neon">
+    <div class="jalur-header">
+        <i class="fas fa-bolt"></i> <h4>Informasi Sistem Jalur</h4>
+    </div>
+    <div class="jalur-grid">
+        <div class="jalur-item">
+            <span class="badge-jalur a">JALUR A</span>
+            <p>Proses kilat, cocok untuk mengejar event yang akan berakhir. (Stok Premium)</p>
+        </div>
+        <div class="jalur-item">
+            <span class="badge-jalur b">JALUR B</span>
+            <p>Harga lebih miring/hemat, proses tetap stabil namun mengikuti antrian stok. (Stok Promo)</p>
+        </div>
+    </div>
+    <p class="jalur-footer">*Sistem Relaxxa akan otomatis mencarikan harga <strong>Termurah</strong> untuk Anda!</p>
+</div>
+            
+<div class="tab-container-neon">
+    <button class="tab-btn active" onclick="switchJalur('A', this)">
+        🚀 JALUR A (KILAT)
+    </button>
+    <button class="tab-btn" onclick="switchJalur('B', this)">
+        💰 JALUR B (HEMAT)
+    </button>
+</div>
+
+<div id="jalur-desc" class="info-jalur-mini">
+    🚀 Menampilkan stok Premium (Proses 1-15 Menit)
+</div>
+            
+            <div class="viewport-neon">
+    <div id="slide-wrapper" class="inner-slide-wrapper">
+        <h4 class="category-title">💎 NOMINAL DIAMONDS</h4>
+        <div id="container-diamonds" class="selection-grid">
+            </div>
+
+        <h4 class="category-title">👑 MOBILE LEGENDS PASS</h4>
+        <div id="container-ml-pass" class="selection-grid">
+            </div>
+
+            <h4 class="category-title">⭐ MOBILE LEGENDS ELITE BULANAN</h4>
+<div id="container-ml-elite" class="selection-grid"></div>
+    </div>
+</div>
+
+            <div class="info-box-neon">
+                <span class="info-icon">!</span>
+                <div class="info-text">
+                    <p><strong>Penting:</strong> Pastikan kamu sudah mencapai LV 5 dan sisa WDP sebelumnya tidak lebih dari 70 hari.</p>
+                </div>
+
+                <!-- === CODINGAN LAMA === -->
+                
+                <!-- <h4 class="category-title">💎 BEST SELLER </h4>
+                
+                <div class="selection-grid">
+                    <label class="item-card">
+                        <input type="radio" name="nominal" value="296">
+                        <div class="item-content">
+                            <div class="best-seller-tag">BEST SELLER</div>
+                        <span class="diamond-icon">💎</span>
+                        <span class="item-title">5 Diamonds</span> -->
+                        <!-- <span class="item-bonus">(256 + 40 Bonus)</span> -->
+                        <!-- <span class="item-price-old">Rp 1.575</span>
+                        <span class="item-price">Rp 1.432</span>
+                    </div>
+                </label> -->
+                
+                <!-- <label class="item-card">
+                    <input type="radio" name="nominal" value="296">
+                    <div class="item-content">
+                        <div class="best-seller-tag">BEST SELLER</div>
+                        <span class="diamond-icon">💎</span>
+                        <span class="item-title">296 Diamonds</span>
+                        <span class="item-bonus">(256 + 40 Bonus)</span>
+                        <span class="item-price-old">Rp 114.300</span>
+                        <span class="item-price">Rp 76.000</span>
+                    </div>
+                </label>
+                
+            </div>  -->
+            <!-- === diamonds biasa === -->
+            <!-- <h4 class="category-title">💎 Diamonds Biasa</h4>
+            <div id="container-diamonds-biasa" class="selection-grid"> -->
+                <!-- <label class="item-card">
+                    <input type="radio" name="nominal" value="86">
+                    <div class="item-content">
+                        <span class="diamond-icon">💎</span> <span class="item-title">3 Diamonds</span>
+                        <span class="item-price-old">Rp 1.300</span>
+                        <span class="item-price">Rp 1.171</span>
+                    </div>
+                </label>
+                
+                <label class="item-card">
+                    <input type="radio" name="nominal" value="296">
+                    <div class="item-content">
+                        <div class="best-seller-tag">BEST SELLER</div>
+                        <span class="diamond-icon">💎</span>
+                        <span class="item-title">5 Diamonds</span>
+                        <!-- <span class="item-bonus">(256 + 40 Bonus)</span> -->
+                        <!-- <span class="item-price-old">Rp 1.575</span>
+                        <span class="item-price">Rp 1.432</span>
+                    </div>
+                </label>
+                
+                <label class="item-card">
+                    <input type="radio" name="nominal" value="172">
+                    <div class="item-content">
+                        <span class="diamond-icon">💎</span> <span class="item-title">12 Diamonds</span>
+                        <span class="item-price-old">Rp 5.000</span>
+                        <span class="item-price">Rp 4.000</span>
+                    </div>
+                </label>
+                
+                <label class="item-card">
+                    <input type="radio" name="nominal" value="172">
+                    <div class="item-content">
+                        <span class="diamond-icon">💎</span> <span class="item-title">19 Diamonds</span>
+                        <span class="item-price-old">Rp 5.775</span>
+                        <span class="item-bonus">(17 + 2 Bonus)</span>
+                        <span class="item-price">Rp 5.223</span>
+                    </div>
+                </label>
+                
+                <label class="item-card">
+                    <input type="radio" name="nominal" value="172">
+                    <div class="item-content">
+                        <span class="diamond-icon">💎</span> <span class="item-title">28 Diamonds</span>
+                        <span class="item-price-old">Rp 11.450</span>
+                        <span class="item-bonus">(25 + 3 Bonus)</span>
+                        <span class="item-price">Rp 7.600</span>
+                    </div>
+                </label>
+                
+                <label class="item-card">
+                    <input type="radio" name="nominal" value="172">
+                    <div class="item-content">
+                        <span class="diamond-icon">💎</span> <span class="item-title">44 Diamonds</span>
+                        <span class="item-price-old">Rp 12.600</span>
+                        <span class="item-bonus">(40 + 4 Bonus)</span>
+                        <span class="item-price">Rp 11.400</span>
+                    </div>
+                </label>
+                
+                <label class="item-card">
+                    <input type="radio" name="nominal" value="172">
+                    <div class="item-content">
+                        <span class="diamond-icon">💎</span> <span class="item-title">59 Diamonds</span>
+                        <span class="item-price-old">Rp 22.900</span>
+                        <span class="item-bonus">(53 + 6 Bonus)</span>
+                        <span class="item-price">Rp 15.200</span>
+                    </div>
+                </label>
+                
+                <label class="item-card">
+                    <input type="radio" name="nominal" value="172">
+                    <div class="item-content">
+                        <span class="diamond-icon">💎</span> <span class="item-title">85 Diamonds</span>
+                        <span class="item-price-old">Rp 32.900</span>
+                        <span class="item-bonus">(77 + 8 Bonus)</span>
+                        <span class="item-price">Rp 21.850</span>
+                    </div>
+                </label>
+                
+                <label class="item-card">
+                    <input type="radio" name="nominal" value="172">
+                    <div class="item-content">
+                        <span class="diamond-icon">💎</span> <span class="item-title">170 Diamonds</span>
+                        <span class="item-price-old">Rp 65.800</span>
+                        <span class="item-bonus">(154 + 16 Bonus)</span>
+                        <span class="item-price">Rp 43.700</span>
+                    </div>
+                </label>
+                
+                <label class="item-card">
+                    <input type="radio" name="nominal" value="172">
+                    <div class="item-content">
+                        <span class="diamond-icon">💎</span> <span class="item-title">240 Diamonds</span>
+                        <span class="item-price-old">Rp 68.250</span>
+                        <span class="item-bonus">(217 + 23 Bonus)</span>
+                        <span class="item-price">Rp 61.750</span>
+                    </div>
+                </label>
+                
+                <label class="item-card">
+                    <input type="radio" name="nominal" value="296">
+                    <div class="item-content">
+                        <div class="best-seller-tag">BEST SELLER</div>
+                        <span class="diamond-icon">💎</span>
+                        <span class="item-title">296 Diamonds</span>
+                        <span class="item-bonus">(256 + 40 Bonus)</span>
+                        <span class="item-price-old">Rp 114.300</span>
+                        <span class="item-price">Rp 76.000</span>
+                    </div>
+                </label>
+                
+                <label class="item-card">
+                    <input type="radio" name="nominal" value="172">
+                    <div class="item-content">
+                        <span class="diamond-icon">💎</span> <span class="item-title">408 Diamonds</span>
+                        <span class="item-price-old">Rp 115.500</span>
+                        <span class="item-bonus">(367 + 41 Bonus)</span>
+                        <span class="item-price">Rp 104.500</span>
+                    </div>
+                </label>
+                
+                <label class="item-card">
+                    <input type="radio" name="nominal" value="172">
+                    <div class="item-content">
+                        <span class="diamond-icon">💎</span> <span class="item-title">568 Diamonds</span>
+                        <span class="item-price-old">Rp 157.500</span>
+                        <span class="item-bonus">(503 + 65 Bonus)</span>
+                        <span class="item-price">Rp 142.500</span>
+                    </div>
+                </label>
+
+                <label class="item-card">
+                    <input type="radio" name="nominal" value="172">
+                    <div class="item-content">
+                        <span class="diamond-icon">💎</span> <span class="item-title">875 Diamonds</span>
+                        <span class="item-price-old">Rp 328.300</span>
+                        <span class="item-bonus">(774 + 101 Bonus)</span>
+                        <span class="item-price">Rp 218.500</span>
+                    </div>
+                </label>
+                
+                <label class="item-card">
+                    <input type="radio" name="nominal" value="172">
+                    <div class="item-content">
+                        <span class="diamond-icon">💎</span> <span class="item-title">2010 Diamonds</span>
+                        <span class="item-price-old">Rp 525.000</span>
+                        <span class="item-bonus">(1708 + 302 Bonus)</span>
+                        <span class="item-price">Rp 475.000</span>
+                    </div>
+                </label> --> 
+                
+                <!-- <label class="item-card">
+                    <input type="radio" name="nominal" value="172">
+                    <div class="item-content">
+                        <span class="diamond-icon">💎</span> <span class="item-title">4830 Diamonds</span>
+                        <span class="item-price-old">Rp 1.260.000</span>
+                        <span class="item-bonus">(4003 + 827 Bonus)</span>
+                        <span class="item-price">Rp 1.140.000</span>
+                    </div>
+                </label> -->
+                
+                <!-- === CODINGAN LAMA === -->
+
+            </div>
+            <!-- === diamonds biasa === -->
+            
+            <!-- === mobile legend pass === -->
+            <!-- <h4 class="category-title">👑 MOBILE LEGENDS PASS</h4>
+            <div id="container-ml-pass" class="selection-grid"> -->
+                <!-- <label class="item-card">
+                    <input type="radio" name="nominal" value="Weekly Diamond Pass">
+                    <div class="item-content">
+                        <!-- <div class="best-seller-tag">HEMAT 400%</div> -->
+                        <!-- <span class="diamond-icon">👑</span> 
+                        <span class="item-title">Weekly Diamond Pass</span>
+                        <span class="item-bonus">Event Topuop + 100</span>
+                        <span class="item-price">Dari : Rp29.899</span>
+                    </div>
+                </label> -->
+                
+                <!-- <label class="item-card">
+                    <input type="radio" name="nominal" value="Twilight Pass">
+                    <div class="item-content">
+                        <span class="diamond-icon">👑</span> 
+                        <span class="item-title">Weekly Diamond Pass X2</span>
+                        <span class="item-bonus">Event Topup + 100</span>
+                        <span class="item-price">Dari : Rp58.160</span>
+                    </div>
+                </label> -->
+
+                <!-- <label class="item-card">
+                    <input type="radio" name="nominal" value="Twilight Pass">
+                    <div class="item-content">
+                        <span class="diamond-icon">👑</span> 
+                        <span class="item-title">Weekly Diamond Pass X4</span>
+                        <span class="item-bonus">Event Topup + 100</span>
+                        <span class="item-price">Dari : Rp114.146</span>
+                    </div>
+                </label> -->
+
+                <!-- <label class="item-card">
+                    <input type="radio" name="nominal" value="Twilight Pass">
+                    <div class="item-content">
+                        <span class="diamond-icon">👑</span> 
+                        <span class="item-title">Weekly Diamond Pass X5</span>
+                        <span class="item-bonus">Event Topup + 100</span>
+                        <span class="item-price">Dari : Rp141.324</span>
+                    </div>
+                </label> -->
+                
+                <!-- <label class="item-card" style="opacity: 0.5; pointer-events: none;">
+                    <div class="item-content">
+                        <span class="diamond-icon">🔒</span>
+                        <span class="item-title">Segera Hadir</span>
+                    </div>
+                </label>
+                
+                <label class="item-card" style="opacity: 0.5; pointer-events: none;">
+                    <div class="item-content">
+                        <span class="diamond-icon">🔒</span>
+                        <span class="item-title">Segera Hadir</span>
+                    </div>
+                </label> -->
+            <!-- </div> -->
+            <!-- <div class="info-box-neon">
+                <span class="info-icon">!</span>
+                <div class="info-text">
+                    <p><strong>Penting:</strong> Pastikan kamu sudah mencapai LV 5 dan sisa WDP sebelumnya tidak lebih dari 70 hari. </p>
+                </div>
+            </div> -->
+            <!-- === mobile legend pass === -->
+
+            <!-- === elite bundle === -->
+            <!-- <h4 class="category-title">👑 ELITE BUNDLE</h4>
+            <div class="selection-grid">
+                <label class="item-card">
+                    <input type="radio" name="nominal" value="Weekly Diamond Pass">
+                    <div class="item-content"> -->
+                        <!-- <div class="best-seller-tag">HEMAT 400%</div> -->
+                        <!-- <span class="diamond-icon">👑</span> 
+                        <span class="item-title">Weekly Elite Bundle</span> -->
+                        <!-- <span class="item-bonus">Event Topuop + 100</span> -->
+                        <!-- <span class="item-price">Dari : Rp13.899</span>
+                    </div>
+                </label> -->
+                
+                <!-- <label class="item-card">
+                    <input type="radio" name="nominal" value="Twilight Pass">
+                    <div class="item-content">
+                        <span class="diamond-icon">👑</span> 
+                        <span class="item-title">Monthly Epic Bundle</span> -->
+                        <!-- <span class="item-bonus">Event Topup + 100</span> -->
+                        <!-- <span class="item-price">Dari : Rp68.699</span>
+                    </div>
+                </label> -->
+                
+                <!-- <label class="item-card" style="opacity: 0.5; pointer-events: none;">
+                    <div class="item-content">
+                        <span class="diamond-icon">🔒</span>
+                        <span class="item-title">Segera Hadir</span>
+                    </div>
+                </label>
+                
+                <label class="item-card" style="opacity: 0.5; pointer-events: none;">
+                    <div class="item-content">
+                        <span class="diamond-icon">🔒</span>
+                        <span class="item-title">Segera Hadir</span>
+                    </div>
+                </label> -->
+            <!-- </div>
+            <div class="info-box-neon">
+                <span class="info-icon">!</span>
+                <div class="info-text">
+                    <p><strong>Penting:</strong> Pastikan kamu sudah mencapai LV 5 dan sisa WDP sebelumnya tidak lebih dari 70 hari. </p>
+                </div>
+            </div> -->
+            <!-- === elite bundle === -->
+        <!-- </div> -->
+    </div>
+    <!-- === bagian pemilihan diamonds === -->
+
+    <!-- === bagian metode pembayaran === -->
+<div class="step-box-neon"> <div class="step-header">
+        <span class="step-num">3</span>
+        <h3>Pilih Metode Pembayaran</h3>
+    </div>
+
+    <div class="payment-grid">
+    <label class="payment-card">
+        <input type="radio" name="payment" value="dana">
+        <div class="payment-content">
+            <img src="assets/img/logo-DANA-1536x864.jpeg" alt="DANA" class="payment-logo">
+            <span class="payment-name">DANA</span>
+        </div>
+    </label>
+
+    <label class="payment-card">
+        <input type="radio" name="payment" value="qris">
+        <div class="payment-content">
+            <img src="assets/img/OVO.png" alt="OVO" class="payment-logo">
+            <span class="payment-name">OVO</span>
+        </div>
+    </label>
+    
+    <label class="payment-card">
+        <input type="radio" name="payment" value="qris">
+        <div class="payment-content">
+            <img src="assets/img/Cuplikan layar 2026-03-03 175804.png" alt="QRIS" class="payment-logo">
+            <span class="payment-name">QRIS</span>
+        </div>
+    </label>
+    
+    <label class="payment-card">
+        <input type="radio" name="payment" value="qris">
+        <div class="payment-content">
+            <img src="assets/img/GoPay-Logo.png" alt="GOPAY" class="payment-logo">
+            <span class="payment-name">GOPAY</span>
+        </div>
+    </label>
+</div>
+<!-- === bagian metode pembayaran === -->
+
+<!-- === bagian tombol kirim === -->
+<div class="payment-summary-container">
+    <div class="qty-wrapper">
+        <label>Jumlah (Qty):</label>
+        <div class="qty-control">
+            <button type="button" class="qty-btn" onclick="updateQty(-1)">-</button>
+            <input type="number" id="purchase-qty" value="1" min="1" onchange="calculateTotal()">
+            <button type="button" class="qty-btn" onclick="updateQty(1)">+</button>
+        </div>
+    </div>
+    
+    <div class="total-price-box">
+        <div class="item-summary">
+            <span class="item-label">Item dipilih:</span>
+            <span id="display-item" class="selected-item-name">-</span>
+        </div>
+        <div class="price-summary">
+            <span class="total-label">Total Pembayaran:</span>
+            <span id="display-total" class="total-amount">Rp 0</span>
+        </div>
+    </div>
+    
+    <div class="payment-action-box">
+        <button type="button" class="btn-bayar-neon" onclick="handlePaymentConfirmation()">
+            <span class="btn-icon">🛒</span> 
+            KONFIRMASI PEMBAYARAN
+        </button>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- === bagian tombol kirim === -->
+
+    <!-- === bagian footer === -->
+
+    <footer class="footer-neon">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h4>RELAXXA official</h4>
+                <p>Layanan Top Up Game termurah, tercepat, dan terpercaya di Indonesia. Proses otomatis 24 Jam.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigasi</h4>
+                <ul>
+                    <li><a href="##about">Tentang Kami</a></li>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="##contact">Hubungi Kami</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>IKUTI KAMI</h4>
+    <div class="social-icons">
+        <a href="#" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.tiktok.com/@relaxxa.official" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+</div>
+</div>
+<div class="footer-bottom">
+    <p>&copy; 2024 RELAXXA official. All Rights Reserved.</p>
+</div>
+</footer>
+
+<!-- === bagian footer === -->
+
+    <!-- === notifikasi pembayaran === -->
+
+    <div id="receiptModal" class="receipt-modal">
+        <div class="receipt-content">
+            <div class="receipt-header">
+                <h4>📄 STRUK PEMESANAN</h4>
+                <span class="close-receipt" onclick="closeReceipt()">&times;</span>
+            </div>
+            <div class="receipt-body" id="receiptBody">
+            </div>
+            <div class="receipt-footer">
+                <button class="btn-wa-neon" onclick="sendToWhatsApp()">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" width="20">
+                    LANJUTKAN KE WHATSAPP
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- === notifikasi pembayaran === -->
+
+    <!-- === cek pesanan === -->
+    <!-- <div id="searchModal" class="receipt-modal">
+    <div class="receipt-content">
+        <div class="receipt-header">
+            <h4>🔍 CEK STATUS PESANAN</h4>
+            <span class="close-receipt" onclick="closeSearchModal()">&times;</span>
+        </div>
+        
+        <div class="receipt-body"> 
+            <p style="color: #8b9bb4; margin-bottom: 20px;">Masukkan User ID Anda untuk mengunduh struk pesanan terbaru.</p>
+            <input type="number" id="search-user-id" class="cyber-input-field" placeholder="User ID (Contoh: 12345678)">
+            <button class="btn-unduh-neon" style="margin-top: 20px; width: 100%;">
+                <span class="btn-icon">📥</span> UNDUH STRUK (.TXT)
+            </button>
+        </div>
+    </div>
+</div> -->
+<!-- === cek pesanan -->
+    
+    <!-- === link js -->
+    <script src="topup-ml.js"></script>
+    <!-- === link js -->
+
+</body>
+</html>

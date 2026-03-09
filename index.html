@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELAXXA_OFFICIAL - Top Up Store</title>
+    <link rel="icon" type="image/png" href="assets/img/Logo_2-removebg-preview.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <!-- === loding screen === -->
+    <div id="loader-wrapper">
+    <div class="loader-content">
+        <div class="loader-circle"></div>
+        <div class="loader-text">RELAXXA<span>OFFICIAL</span></div>
+        <p>Mohon Tunggu...</p>
+    </div>
+</div>
+<!-- === loding screen === -->
+
+<!-- === navbar === -->
+<header>
+    <nav>
+        <div class="logo">RELAXXA<span>official</span></div>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#game-list">Daftar Game</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#how-to-order">Cara Pesan</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+</header>
+<!-- === navbar === -->
+
+<!-- === tampilan awal website === -->
+<section class="hero">
+    <div class="hero-content">
+        <img src="assets/img/Logo_2-removebg-preview.png" alt="Logo" class="hero-logo">
+        <h1>Level Up Tanpa Batas</h1>
+        <p>Top up instan, harga miring, 100% aman terpercaya.</p>
+    </div>
+</section>
+<!-- === tampilan awal website === -->
+
+<!-- === daftar game === -->
+<main id="game-list">
+    <h2 class="section-title">Daftar Game</h2>
+    <div class="game-grid">
+        <div class="game-card">
+            <div class="ribbon ribbon-new">NEW</div> <div class="card-img-wrapper">
+                <img src="assets/img/mobile-legends-bang-bang-logo-fight-2ia0z1qrfbimzsgi.jpg" alt="MLBB">
+            </div>
+            <h3>Mobile Legends</h3>
+            <a href="topup-ml.html" class="btn-card">Top Up</a>
+        </div>
+        
+        <div class="game-card" onclick="openModal('Free Fire')">
+            <div class="ribbon ribbon-soon">SOON</div> <div class="card-img-wrapper">
+                <img src="assets/img/2070156.jpg" alt="FF">
+            </div>
+            <h3>Free Fire</h3>
+        </div>
+        <div class="game-card" onclick="openModal('Genshin Impact')">
+            <div class="ribbon ribbon-soon">SOON</div> <div class="card-img-wrapper">
+                <img src="assets/img/red_eyes_hu_tao_hd_genshin_impact_5-1920x1080.jpg" alt="Genshin">
+            </div>
+            <h3>Genshin Impact</h3>
+        </div>
+        <div class="game-card" onclick="openModal('PUBG Mobile')">
+            <div class="ribbon ribbon-soon">SOON</div> <div class="card-img-wrapper">
+                <img src="assets/img/825955.jpg" alt="PUBGM">
+            </div>
+            <h3>PUBG Mobile</h3>
+        </div>
+    </div>
+</main>
+<!-- === daftar game === -->
+
+<!-- === informasi === -->
+<section class="info-section">
+    <div class="container">
+        <!-- === tentang RELAXXA OFFICIAL === -->
+        <div id="about" class="info-card neon-border-blue about-grid">
+    <div class="about-text">
+        <h2 class="title-neon-green">RELAXXA OFFICIAL</h2>
+        <p>Platform top-up game termurah, tercepat, dan terpercaya di Indonesia. Kami hadir dengan sistem otomatis 24/7 untuk memastikan pesanan Anda masuk dalam hitungan detik.</p>
+        
+        <div class="about-stats">
+            <div class="stat-item">
+                <span class="stat-value">⚡ Detik</span>
+                <span class="stat-label">Proses Cepat</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">24/7</span>
+                <span class="stat-label">Layanan Aktif</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">100%</span>
+                <span class="stat-label">Legal & Aman</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="about-visual">
+        <div class="floating-icon">💎</div>
+    </div>
+</div>
+        <!-- === tentang RELAXXA OFFICIAL === -->
+        
+        <!-- === cara pemesanan === -->
+        <section id="how-to-order" class="order-steps-section">
+            <h2 class="section-title title-neon-blue">CARA PEMESANAN</h2>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-icon">🎮</div>
+                    <div class="step-number">01</div>
+                    <h3>Pilih Game</h3>
+                    <p>Pilih game favorit Anda di menu utama website.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-icon">🆔</div>
+                    <div class="step-number">02</div>
+                    <h3>Input Data</h3>
+                    <p>Masukkan User ID & Zone ID akun Anda dengan benar.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-icon">💎</div>
+                    <div class="step-number">03</div>
+                    <h3>Pilih Nominal</h3>
+                    <p>Pilih nominal top-up atau diamond yang diinginkan.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-icon">💳</div>
+                    <div class="step-number">04</div>
+                    <h3>Pembayaran</h3>
+                    <p>Pilih metode pembayaran dan selesaikan transaksi.</p>
+                </div>
+            </div>
+        </section>
+        <!-- === cara pemesanan === -->
+        
+        <!-- === hubungi kami === -->
+        <div class="info-wrapper">
+    <h2 class="outside-title title-neon-blue">HUBUNGI ADMIN</h2>
+    <div id="contact" class="contact-card-modern">
+        <p class="contact-desc">Punya kendala atau pertanyaan? Tim kami siap membantu Anda kapan saja.</p>
+        <form id="contactForm" class="neon-form">
+            <input type="text" placeholder="Nama Anda" class="neon-input" required>
+            <textarea placeholder="Tulis pertanyaan Anda di sini..." rows="4" class="neon-input" required></textarea>
+            <button type="submit" class="btn-neon-submit">KIRIM PESAN</button>
+        </form>
+    </div>
+</div>
+        <!-- === hubungi kami === -->
+    </div>
+</section>
+<!-- === informasi === -->
+
+<!-- === footer === -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class="logo">Relaxxa<span>Official</span></div>
+            <p class="footer-desc">Platform Top Up Game tercepat dan terpercaya di Indonesia. Nikmati layanan otomatis 24 jam dengan harga yang bersahabat bagi para gamer.</p>
+            <div class="social-icons">
+                <a href="#" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.tiktok.com/@relaxxa.official" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer-column">
+            <h3>Menu Cepat</h3>
+            <ul>
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#game-list">Daftar Game</a></li>
+                <li><a href="#">Cek Pesanan</a></li>
+                <li><a href="#">Syarat & Ketentuan</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-column">
+            <h3>Metode Pembayaran</h3>
+            <div class="payment-methods">
+                <span class="pay-badge">DANA</span>
+                <span class="pay-badge">OVO</span>
+                <span class="pay-badge">GOPAY</span>
+                <span class="pay-badge">QRIS</span>
+                <!-- <span class="pay-badge">SHOPEEPAY</span> -->
+                <!-- <span class="pay-badge">BANK</span> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 <span>Relaxxa Official</span>. All Rights Reserved.</p>
+    </div>
+</footer>
+<!-- === footer === -->
+
+    <script src="script.js"></script>
+</body>
+</html>

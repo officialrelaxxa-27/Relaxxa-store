@@ -1,0 +1,1069 @@
+:root {
+    --bg-dark: #0a0e17; /* Latar belakang utama gelap */
+    --bg-card: #161b2a; /* Latar belakang kartu sedikit lebih terang */
+    --text-light: #ffffff;
+    --neon-green: #00ff88; /* Hijau Neon */
+    --neon-blue: #00f2fe;  /* Biru Neon */
+    --neon-blue-dim: rgba(0, 242, 254, 0.3);
+    --shadow-neon: 0 0 10px rgba(0, 255, 136, 0.5), 0 0 20px rgba(0, 242, 254, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Sesuaikan angka 100px dengan tinggi navbar kamu */
+#about, 
+#how-to-order, 
+#contact,
+#game-list {
+    scroll-margin-top: 100px;
+}
+
+/* === Header === */
+header {
+    background-color: rgba(22, 27, 42, 0.95);
+    padding: 1rem 5%;
+    border-bottom: 2px solid var(--neon-blue);
+    box-shadow: 0 0 15px var(--neon-blue-dim);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Mendorong logo ke kiri, hamburger ke kanan */
+    align-items: center; /* Menyejajarkan secara vertikal agar tidak naik-turun */
+    padding: 10px 5%;
+    width: 100%;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green);
+}
+
+.logo span { 
+    color: var(--neon-blue); 
+    text-shadow: 0 0 10px var(--neon-blue);
+}
+
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 25px; }
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+
+nav ul li a:hover { 
+    color: var(--neon-blue); 
+    text-shadow: 0 0 8px var(--neon-blue);
+}
+
+/* Style untuk garis hamburger */
+.menu-toggle {
+    display: none; /* Sembunyi di Desktop */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--neon-blue);
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* === Header === */
+
+/* === Hero Section === */
+
+.hero {
+    text-align: center;
+    min-height: 87vh; 
+    display: flex;
+    flex-direction: column; /* Memastikan elemen berderet ke bawah */
+    
+    /* UBAH BAGIAN INI */
+    justify-content: flex-start; /* Mengatur konten mulai dari atas, bukan tengah */
+    padding-top: 5vh;           /* Memberi jarak 15% dari tinggi layar agar posisi pas di atas */
+    
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: radial-gradient(circle at center, #1a2a4a 0%, var(--bg-dark) 70%);
+    position: relative;
+    box-sizing: border-box;
+    padding-bottom: 0; /* Pastikan tidak ada padding bawah */
+}
+
+/* === Perbaikan: Menambahkan Garis Pemisah Neon di Bawah === */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Menempel tepat di batas bawah Hero */
+    left: 0;
+    width: 100%;
+    height: 4px; /* Ketebalan garis agar glow terasa */
+    
+    /* Gradasi Hijau Neon ke Biru Neon */
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--neon-green) 30%, 
+        var(--neon-blue) 70%, 
+        transparent 100%
+    );
+    
+    /* Menambahkan efek cahaya (pendaran) yang kuat */
+    box-shadow: 0 0 15px var(--neon-green), 0 0 25px var(--neon-blue);
+    
+    /* Opsional: Jika ingin gradasinya nampak menyebar ke arah tulisan */
+    filter: blur(1px); 
+    
+    z-index: 10;
+}
+
+.hero::before {
+    content: 'SCROLL DOWN ↓';
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--neon-blue);
+    letter-spacing: 2px;
+    opacity: 0.6;
+    animation: bounce 2s infinite;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-family: 'Rajdhani', sans-serif;
+    background: linear-gradient(to right, var(--neon-green), var(--neon-blue));
+    
+    /* Perbaikan sesuai gambar: Tambahkan properti standar */
+    -webkit-background-clip: text;
+    background-clip: text; 
+    
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback jika gradasi tidak didukung */
+    
+    /* Efek pendaran neon yang lebih kuat */
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.3), 0 0 30px rgba(0, 242, 254, 0.2);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.hero p { 
+    color: #8b9bb4; 
+    font-size: 1.1rem; 
+}
+
+.hero-logo {
+    width: 300px; /* Atur lebar logo sesuai keinginan */
+    height: auto;
+    margin-bottom: 20px; /* Memberi jarak ke teks di bawahnya */
+    filter: drop-shadow(0 0 10px var(--neon-blue)); /* Efek cahaya pada logo */
+    animation: pulse 2s infinite ease-in-out; /* Opsional: Efek animasi berdenyut */
+}
+
+/* Animasi opsional agar logo terlihat lebih hidup */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.9; }
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Memastikan semua elemen (logo & teks) berada di tengah */
+    text-align: center;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* === Hero Section === */
+
+/* === Game Grid === */
+
+#game-list {
+    padding-top: 10px; /* Memberi jarak dari Hero Section */
+    scroll-margin-top: 10px; /* Jarak aman agar judul "Daftar Game" tidak tertutup navbar */
+}
+
+.section-title {
+    text-align: center;
+    margin: 50px 0 30px;
+    color: var(--text-light);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    padding: 20px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.game-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 15px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.game-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--neon-green);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+    -webkit-transform: translateY(-8px);
+    -moz-transform: translateY(-8px);
+    -ms-transform: translateY(-8px);
+    -o-transform: translateY(-8px);
+}
+
+.card-img-wrapper {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.game-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.game-card:hover img {
+    transform: scale(1.1);
+}
+
+.game-card h3 {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.btn-card {
+    display: inline-block;
+    margin: 15px 0;
+    padding: 8px 25px;
+    background: transparent;
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.btn-card:hover {
+    background: var(--neon-blue);
+    color: var(--bg-dark);
+    box-shadow: 0 0 15px var(--neon-blue);
+}
+
+/* Container kartu harus relatif agar pita bisa diposisikan absolut */
+.game-card {
+    position: relative;
+    overflow: hidden; /* Penting agar pita tidak keluar dari radius kartu */
+}
+
+/* Base Style untuk Pita */
+.ribbon {
+    position: absolute;
+    top: 10px;
+    right: -30px; /* Posisi miring */
+    transform: rotate(45deg);
+    width: 120px;
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 3px 0;
+    z-index: 10;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Warna Hijau Neon untuk Game Baru */
+.ribbon-new {
+    background-color: var(--neon-green);
+    color: var(--bg-dark);
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+/* Warna Abu-abu untuk Game Coming Soon */
+.ribbon-soon {
+    background-color: #555;
+    color: #ccc;
+    box-shadow: none;
+}
+
+/* Membuat kartu yang belum tersedia terlihat agak gelap */
+.card-disabled {
+    filter: grayscale(0.8);
+    cursor: not-allowed;
+    pointer-events: none; /* Mencegah klik */
+}
+
+.card-disabled .btn-card {
+    border-color: #555;
+    color: #555;
+}
+
+/* === Game Grid === */
+
+/* === informasi === */
+
+.info-section {
+    padding: 80px 5%;
+    background: var(--bg-dark);
+}
+
+.info-wrapper {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.info-card {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 20px;
+    line-height: 1.6;
+    transition: 0.3s;
+}
+
+.info-card h2 {
+    font-family: 'Rajdhani', sans-serif;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.steps p {
+    margin-bottom: 8px;
+    color: #cbd5e1;
+}
+
+.outside-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Warna Judul Neon */
+.title-neon-green {
+    color: var(--neon-green);
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+.title-neon-blue {
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+}
+
+/* Border Neon Khusus */
+.neon-border-blue {
+    border: 1px solid var(--neon-blue-dim);
+    box-shadow: inset 0 0 15px rgba(0, 242, 254, 0.05);
+}
+
+.neon-border-green {
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    box-shadow: inset 0 0 15px rgba(0, 255, 136, 0.05);
+}
+
+/* Style Textarea untuk Form */
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(0,0,0,0.3);
+    border: 1px solid #2a3b55;
+    border-radius: 8px;
+    color: white;
+    font-size: 0.9rem;
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--neon-green);
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+}
+
+/* Container Utama */
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Kartu Step */
+.step-card {
+    background: var(--bg-card);
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.step-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 20px var(--neon-blue-dim);
+}
+
+/* Ikon Step */
+.step-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 5px var(--neon-blue));
+}
+
+/* Nomor Urutan (Pojok Kanan Atas) */
+.step-number {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Rajdhani', sans-serif;
+    color: rgba(0, 255, 136, 0.2); /* Warna hijau transparan */
+}
+
+.step-card h3 {
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--neon-green);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.step-card p {
+    font-size: 0.85rem;
+    color: #8b9bb4;
+    line-height: 1.5;
+}
+
+/* Container Utama About */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Teks di kiri, visual di kanan */
+    gap: 30px;
+    align-items: center;
+    background: linear-gradient(145deg, var(--bg-card), #0f172a) !important;
+    overflow: hidden;
+}
+
+.about-text p {
+    color: #8b9bb4;
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+/* Bagian Statistik */
+.about-stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-item {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 12px;
+    border-left: 3px solid var(--neon-green);
+    min-width: 100px;
+    transition: 0.3s;
+}
+
+.stat-item:hover {
+    background: rgba(0, 255, 136, 0.05);
+    transform: translateY(-5px);
+}
+
+.stat-value {
+    display: block;
+    color: var(--neon-green);
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    text-transform: uppercase;
+}
+
+/* Bagian Visual di Kanan */
+.about-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 242, 254, 0.1) 0%, transparent 70%);
+}
+
+.floating-icon {
+    font-size: 5rem;
+    filter: drop-shadow(0 0 20px var(--neon-blue));
+    animation: floating 3s infinite ease-in-out;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.contact-card-modern {
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.contact-desc {
+    color: #8b9bb4;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.neon-input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #2a3b55;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.9rem;
+    display: block;
+    box-sizing: border-box; /* Agar padding tidak merusak lebar */
+}
+
+.neon-input:focus {
+    outline: none;
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+}
+
+.btn-neon-submit {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-blue);
+    font-weight: bold;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-neon-submit:hover {
+    background: var(--neon-blue);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px var(--neon-blue);
+}
+
+/* Responsive untuk HP */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    .about-stats {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .about-visual {
+        display: none; /* Hilangkan visual di HP agar lebih ringkas */
+    }
+    .steps-container {
+        grid-template-columns: 1fr; /* Jadi satu baris ke bawah di HP */
+    }
+    .outside-title {
+        font-size: 1.8rem;
+        text-align: center; /* Judul jadi di tengah saat di HP */
+    }
+}
+/* === informasi === */
+
+/* === Modal Neon === */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: var(--bg-card);
+    width: 90%;
+    max-width: 420px;
+    margin: 80px auto;
+    padding: 30px;
+    border-radius: 15px;
+    position: relative;
+    border: 2px solid var(--neon-blue);
+    box-shadow: 0 0 25px var(--neon-blue-dim);
+    animation: modalSlideIn 0.4s ease;
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close {
+    position: absolute;
+    right: 20px; top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #8b9bb4;
+    transition: 0.3s;
+}
+
+.close:hover { color: var(--neon-green); }
+
+.modal h2 {
+    color: var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green);
+    margin-bottom: 25px;
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+}
+
+.input-group { margin-bottom: 15px; }
+
+label {
+    display: block;
+    color: #8b9bb4;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(0,0,0,0.3);
+    border: 1px solid #2a3b55;
+    border-radius: 8px;
+    color: white;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue-dim);
+}
+
+select option { background-color: var(--bg-card); color: white; }
+
+.btn-buy {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    background: transparent;
+    border: 2px solid var(--neon-green);
+    color: var(--neon-green);
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 8px;
+}
+/* === Modal Neon === */
+
+/* === social ikon === */
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.social-link {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 255, 204, 0.1); /* Background transparan tipis */
+    color: #00ffcc; /* Warna cyan neon */
+    border: 1px solid #00ffcc;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-link:hover {
+    background: #00ffcc;
+    color: #1a1a1a;
+    box-shadow: 0 0 10px #00ffcc; /* Efek nyala */
+    transform: translateY(-3px);
+}
+
+/* === social ikon === */
+
+/* === Style Loading Screen === */
+
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0a0e17; /* Sama dengan --bg-dark */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Pastikan paling atas */
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-circle {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(0, 242, 254, 0.1);
+    border-top: 4px solid var(--neon-blue);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 15px var(--neon-blue-dim);
+}
+
+.loader-text {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green);
+    letter-spacing: 2px;
+}
+
+.loader-text span {
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px var(--neon-blue);
+}
+
+.loader-content p {
+    color: #8b9bb4;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+/* Animasi Putar */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Class untuk menghilangkan loader */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* === Style Loading Screen === */
+
+/* === footer === */
+footer {
+    background: var(--bg-card);
+    padding: 60px 0 20px;
+    border-top: 2px solid var(--neon-blue);
+    margin-top: 80px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.footer-column h3 {
+    color: var(--neon-green);
+    font-family: 'Rajdhani', sans-serif;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+.footer-desc {
+    font-size: 0.9rem;
+    color: #8b9bb4;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+/* Link Style */
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #8b9bb4;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: var(--neon-blue);
+    padding-left: 8px; /* Efek geser dikit pas di hover */
+}
+
+/* Payment Badges */
+.payment-methods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pay-badge {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #2a3b55;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    color: var(--neon-blue);
+    font-weight: bold;
+}
+
+/* Social Icons */
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    filter: drop-shadow(0 0 5px var(--neon-blue));
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(139, 155, 180, 0.1);
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.footer-bottom span {
+    color: var(--neon-green);
+}
+
+/* === footer === */
+
+/* === Responsive === */
+
+@media (max-width: 480px) {
+    .card-img-wrapper {
+        height: 160px; /* Lebih pendek untuk HP agar user tidak capek scroll */
+    }
+    .game-card h3 {
+        font-size: 0.9rem; /* Perkecil teks sedikit */
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; 
+        order: 2;
+        z-index: 101; /* Pastikan di atas elemen lain */
+    }
+    .logo {
+        order: 1;
+        font-size: 1.4rem;
+        margin: 0; /* Pastikan tidak ada margin yang mendorong ke bawah */
+    }
+    /* Perkecil ukuran teks hero agar tidak memenuhi layar */
+    .hero h1 {
+        font-size: 2rem; 
+    }
+    /* Membuat menu navigasi menjadi vertikal jika layar sempit */
+    nav {
+        flex-direction: row !important; /* Paksa tetap ke samping */
+        justify-content: space-between; /* Logo kiri, Hamburger kanan */
+        align-items: center;
+        padding: 10px 5%;
+        position: relative; /* Penting agar menu dropdown tidak berantakan */
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+    }
+    nav ul li {
+        margin: 5px 10px; /* Beri jarak antar menu agar mudah ditekan jari */
+    }
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Otomatis di bawah header */
+        left: 0;
+        width: 100%;
+        background-color: rgba(10, 14, 23, 0.98); /* Samakan dengan bg-dark */
+        border-bottom: 2px solid var(--neon-blue);
+        padding: 20px 0;
+        z-index: 999;
+    }
+    .nav-list.active {
+        display: flex;
+    }
+    /* Pastikan gambar hero logo tidak terlalu besar di HP */
+    .hero-logo {
+        width: 200px;
+    }
+    /* Beri sedikit ruang lebih di sisi kiri/kanan pada grid game */
+    .game-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Ukuran kartu lebih kecil agar bisa 2 kolom di HP */
+        gap: 15px;
+        padding: 20px 3%;
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .payment-methods {
+        justify-content: center;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+    .menu-toggle {
+        display: flex; /* Muncul di HP */
+    }
+    
+    .nav-list {
+        display: none; /* Sembunyi sebelum diklik */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(22, 27, 42, 0.98);
+        border-bottom: 2px solid var(--neon-blue);
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .nav-list.active {
+        display: flex; /* Muncul saat tombol diklik */
+    }
+
+        .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .about-stats {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .about-visual {
+        display: none; /* Hilangkan visual di HP agar lebih ringkas */
+    }
+
+    .steps-container {
+        grid-template-columns: 1fr; /* Jadi satu baris ke bawah di HP */
+    }
+
+    .outside-title {
+        font-size: 1.8rem;
+        text-align: center; /* Judul jadi di tengah saat di HP */
+    }
+}
+/* === Responsive === */
