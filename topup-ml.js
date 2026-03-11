@@ -15,7 +15,7 @@ const inventoryDiamonds_A = [
     { nama: "28 Diamonds", detail: "(25 + 3 Bonus)", harga: 7808 },
     { nama: "36 Diamonds", detail: "(33 + 3 Bonus)", harga: 10227 },
     { nama: "44 Diamonds", detail: "(40 + 4 Bonus)", harga: 11880 },
-    { nama: "59 Diamonds", detail: "(53 + 6 Bonus)", harga: 16038 },
+    { nama: "59 Diamonds", detail: "(53 + 6 Bonus)", harga: 16100 },
     { nama: "64 Diamonds", detail: "(58 + 6 Bonus)", harga: 17061 },
     { nama: "71 Diamonds", detail: "(64 + 7 Bonus)", harga: 19251 },
     { nama: "85 Diamonds", detail: "(77 + 8 Bonus)", harga: 22649 },
@@ -450,4 +450,5 @@ window.addEventListener("load", function() {
         loader.classList.add("loader-hidden");
     }, 1000); 
 });
+
 // === loding screen ===
